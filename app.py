@@ -14,7 +14,7 @@ def main():
    
     @st.cache_resource
     def load_model():
-        model = tf.keras.models.load_model('weights-improvement-05-0.99.hdf5')
+        model = tf.keras.models.load_model('weights-improvement-06-0.94.hdf5')
         return model
     
     def import_and_predict(image_data, model):
@@ -27,7 +27,7 @@ def main():
         return prediction
 
     model = load_model()
-    class_names = ["CLOUDY", "SUNRISE"]
+    class_names = ["CLOUDY", "SUNRISE", "RAIN", "SHINE"]
     
 
     file = st.file_uploader("Choose a Cloudy or Sunrise picture from your computer", type=["jpg", "png", "jpeg"])
