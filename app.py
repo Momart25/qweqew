@@ -6,15 +6,15 @@ import cv2
 
 def main():
     # set up the Streamlit app
-    st.write("Name: Joemart Gridson T. Turaray")
+    st.write("Name: Dawn Alyssa B. Danseco")
     st.write("Section: CPE32S4")
     st.write("Instructor: Dr. Jonathan Taylar")
-    st.title("Class Weather ( Sunrise/Cloudy)")
-    st.write("This app classifies whether an uploaded image contains a Sunrise or Cloudy images using a pre-trained convolutional neural network model.")
+    st.title("Coca Cola or Pepsi Detector (Coca Cola/Pepsi)")
+    st.write("This app classifies whether an uploaded image whether if it is Coca Cola or Pepsi.")
    
     @st.cache_resource
     def load_model():
-        model = tf.keras.models.load_model('weights-improvement-06-0.94.hdf5')
+        model = tf.keras.models.load_model('weights-improvement-08-0.98.hdf5')
         return model
     
     def import_and_predict(image_data, model):
@@ -27,13 +27,13 @@ def main():
         return prediction
 
     model = load_model()
-    class_names = ["CLOUDY", "SUNRISE", "RAIN", "SHINE"]
+    class_names = ["CocaCola", "Pepsi"]
     
 
-    file = st.file_uploader("Choose a Cloudy or Sunrise picture from your computer", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Choose a COCA COLA or PEPSI picture from your computer", type=["jpg", "png", "jpeg"])
 
     if file is None:
-        st.text("Please upload an image file")
+        st.text("Please upload an image file!")
     else:
         image = Image.open(file)
         st.image(image, use_column_width=True)
@@ -43,5 +43,5 @@ def main():
         string = "Prediction: " + class_name
         st.success(string)
  
-if __name__ == "__main__":
+if name == "main":
     main()
